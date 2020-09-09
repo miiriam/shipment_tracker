@@ -6,8 +6,12 @@ module DeliveryServices
     end
 
     def tracking_status(tracking_number)
-      tracking = fedex_client.track(tracking_number: tracking_number)
-      tracking.first.status
+      begin 
+        tracking = fedex_client.track(tracking_number: tracking_number)
+        tracking.first.status
+      rescue Fedex::RateError
+        'EXCEPTION'
+      end
     end
   
     def fedex_client
