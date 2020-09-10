@@ -8,9 +8,18 @@ class Tracker
     tracking_numbers.each do |tracking_number|
       case tracking_number['carrier']
       when 'FEDEX'
-        statuses << @fedex.tracking_status(tracking_number['tracking_number'])
+        status = @fedex.tracking_status(tracking_number['tracking_number'])
+        statuses << formater_response(tracking_number, status)
       end
     end
     statuses
+  end
+
+  def formater_response(tracking_number, status)
+    {
+      carrier: tracking_number['carrier'],
+      tracking_number: tracking_number['tracking_number'],
+      status: status
+    }
   end
 end
