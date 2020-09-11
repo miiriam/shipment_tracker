@@ -28,6 +28,10 @@ gem 'fedex'
 # Figaro easy to securely configure Rails applications.
 gem 'figaro'
 
+# Sidekiq uses threads to handle many jobs at the same time in the same process
+gem 'sidekiq'
+gem 'sidekiq-status'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
