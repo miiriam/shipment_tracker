@@ -25,9 +25,11 @@ module DeliveryServices
       begin 
         tracking = fedex_client.track(tracking_number: tracking_number)
         fedex_status = tracking.first.status
-        homologate_status(fedex_status)
+        result = homologate_status(fedex_status)
+        tracking_number(result, tracking_number)
       rescue Fedex::RateError
-        'EXCEPTION'
+        result = 'EXCEPTION'
+        tracking_number(result, tracking_number)
       end
     end
   
@@ -47,6 +49,14 @@ module DeliveryServices
       @status_list.each do |status|
         return status[0].to_s if status[1].include?(fedex_status)
       end
+    end
+
+    def tracking_number(result, tracking_number)
+      TrackingNumber.create(
+        tracking_status: TrackingStatus.find_by(name: result),
+        number: tracking_number,
+        carrier: Carrier.find_by(name: 'FEDEX')
+      )
     end
   end  
 end
