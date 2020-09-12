@@ -1,8 +1,4 @@
 class Tracker
-  def initialize
-    @fedex = DeliveryServices::FedexService.new
-  end
-
   def status_info(tracking_numbers)
     statuses = []
     tracking_numbers.each do |tracking_number|
@@ -16,6 +12,8 @@ class Tracker
     statuses
   end
 
+  private
+  
   def formater_response(tracking_number, status)
     {
       carrier: tracking_number['carrier'],
