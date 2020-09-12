@@ -35,6 +35,9 @@ gem 'figaro'
 # Sidekiq uses threads to handle many jobs at the same time in the same process
 gem 'sidekiq'
 
+# JSON structures
+gem 'jbuilder'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -43,6 +46,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Testing framework to Ruby on Rails. Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '4.0.0'
+  gem 'pry-rails', '0.3.9'
 end
 
 group :development do
