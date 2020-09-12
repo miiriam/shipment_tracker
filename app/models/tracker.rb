@@ -13,7 +13,7 @@ class Tracker
   end
 
   private
-  
+
   def formater_response(tracking_number, status)
     {
       carrier: tracking_number['carrier'],
