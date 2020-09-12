@@ -26,10 +26,10 @@ module DeliveryServices
         tracking = fedex_client.track(tracking_number: tracking_number)
         fedex_status = tracking.first.status
         result = homologate_status(fedex_status)
-        tracking_number(result, tracking_number)
+        information_tracking(result, tracking_number)
       rescue Fedex::RateError
         result = 'EXCEPTION'
-        tracking_number(result, tracking_number)
+        information_tracking(result, tracking_number)
       end
     end
   
@@ -51,13 +51,18 @@ module DeliveryServices
       end
     end
 
-    def tracking_number(result, tracking_number)
-      TrackingNumber.create(
-        tracking_status: TrackingStatus.find_by(name: result),
-        number: tracking_number,
-        carrier: Carrier.find_by(name: 'FEDEX')
-      )
+    def information_tracking(result, tracking_number)
+      if TrackingNumber.exists?(number: tracking_number)
+        TrackingNumber.find_by(number: tracking_number).update_attributes(
+          tracking_status: TrackingStatus.find_by(name: result)
+        )
+      else
+        TrackingNumber.create(
+          tracking_status: TrackingStatus.find_by(name: result),
+          number: tracking_number,
+          carrier: Carrier.find_by(name: 'FEDEX')
+        )
+      end
     end
   end  
 end
-
