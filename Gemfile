@@ -34,6 +34,7 @@ gem 'figaro'
 
 # Sidekiq uses threads to handle many jobs at the same time in the same process
 gem 'sidekiq'
+gem 'sidekiq-status'
 
 # JSON structures
 gem 'jbuilder'
@@ -45,7 +46,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Testing framework to Ruby on Rails. Read more: https://github.com/rspec/rspec-rails
-  gem 'rspec-rails', '4.0.0'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'rspec-simplecov', '~> 0.2.2'
+  gem 'simplecov'
   gem 'pry-rails', '0.3.9'
 end
 
@@ -55,6 +58,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
