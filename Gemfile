@@ -9,6 +9,10 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+
+# Pg is the Ruby interface to the PostgreSQL RDBMS
+gem 'pg', '~> 1.1.4'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -30,7 +34,6 @@ gem 'figaro'
 
 # Sidekiq uses threads to handle many jobs at the same time in the same process
 gem 'sidekiq'
-gem 'sidekiq-status'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -38,6 +41,8 @@ gem 'sidekiq-status'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Testing framework to Ruby on Rails. Read more: https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '4.0.0'
 end
 
 group :development do

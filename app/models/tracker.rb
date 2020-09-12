@@ -8,7 +8,7 @@ class Tracker
     tracking_numbers.each do |tracking_number|
       case tracking_number['carrier']
       when 'FEDEX'
-        status = @fedex.tracking_status(tracking_number['tracking_number'])
+        status = FedexStatusWorker.perform_async(tracking_number['tracking_number'])
         statuses << formater_response(tracking_number, status)
       end
     end
