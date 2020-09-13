@@ -22,7 +22,7 @@ module DeliveryServices
     end
 
     def tracking_status(tracking_number)
-      begin 
+      begin
         tracking = fedex_client.track(tracking_number: tracking_number)
         fedex_status = tracking.first.status
         result = homologate_status(fedex_status)
