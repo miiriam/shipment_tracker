@@ -10,7 +10,7 @@ class Api::V1::TrackingStatusesController < ApplicationController
     render json: response
   end
 
-  # GET /api/v1/tracking_statuses/tracking_status
+  # GET /api/v1/tracking_statuses/get_tracking_status
   def get_tracking_status
     @trackings = TrackingNumber.all
     respond_to do |format|
