@@ -33,6 +33,7 @@ FEDEX_MODE: 'test'
 _________________
 
 Abre tu terminal y en diferentes ventanas corre los siguientes comandos
+
 *Para Redis*
 ```
 $ redis-server
