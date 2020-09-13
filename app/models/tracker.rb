@@ -7,6 +7,9 @@ class Tracker
         worker = FedexStatusWorker.perform_async(tracking_number['tracking_number'])
         status =  Sidekiq::Status::get worker, :status
         statuses << formater_response(tracking_number, status)
+      else
+        status = 'Carrier not found'
+        statuses << formater_response(tracking_number, status)
       end
     end
     statuses
