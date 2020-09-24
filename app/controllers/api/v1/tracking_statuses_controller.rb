@@ -1,7 +1,7 @@
 class Api::V1::TrackingStatusesController < ApplicationController
   include ActionView::Layouts
 
-  before_action :parse_request
+  before_action :parse_request, only: [:send_tracking_numbers]
 
   # POST /api/v1/tracking_statuses/send_tracking_numbers
   def send_tracking_numbers
