@@ -3,7 +3,7 @@
 ### Rastreador de envíos
 Servicio para el rastreo de envíos
 _________________
-Necesitaras tener instalado Ruby 2.6.5
+Deberás tener instalado Ruby 2.6.5
 
 #### Para poder iniciar necesitarás:
 Clona el repositorio
@@ -16,11 +16,34 @@ Instala las gemas
 ```
 $ bundle install
 ```
+_________________
+
+#### Configuración de la base de datos Postgresql
+
+##### Para Mac 
+Instalalo con homebrew
+```
+$ brew install postgresql
+```
+Inicia el servicio `postgresql`
+```
+$ brew services start postgresql
+```
+Ingresa a `psql`
+```
+$ psql
+```
+Crea un usuario en postgres con los siguientes datos
+```
+CREATE ROLE shipment_tracker WITH PASSWORD 'password' LOGIN CREATEDB;
+```
 Crea y migra la base de datos 
 ```
 $ rake db:create
 $ rake db:migrate
 ```
+_________________
+
 Para utilizar el servicio de Fedex necesitaras las credenciales, crea un archivo dentro de la carpeta *config/application.yml*
 ```
 #fedex
