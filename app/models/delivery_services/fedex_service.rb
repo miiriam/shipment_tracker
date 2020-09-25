@@ -4,15 +4,33 @@ module DeliveryServices
     STATUS_LIST = {
       CREATED:
        ['Shipment information sent to FedEx',
-        'At destination sort facility',
-        'At Pickup'],
+        'At Pickup',
+        'Tendered'],
       ON_TRANSIT: [
         'Departed FedEx location',
         'On FedEx vehicle for delivery',
-        'At FedEx destination facility'
+        'At FedEx destination facility',
+        'At destination sort facility',
+        'At local FedEx facility',
+        'In transit',
+        'Arrived at FedEx location',
+        'Picked up',
+        'International shipment release',
+        'Hold at location'
       ],
       DELIVERED: [
         'Delivered'
+      ],
+      EXCEPTION: [
+        'Customer not available or business closed',
+        'Local delivery restriction',
+        'Incorrect address',
+        'Unable to deliver',
+        'Returned to sender/shipper',
+        'Clearance delay',
+        'Shipment canceled',
+        'Duplicate tracking number',
+        'Delivery exception'
       ]
     }
 
