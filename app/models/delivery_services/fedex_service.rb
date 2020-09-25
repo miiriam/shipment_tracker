@@ -3,9 +3,8 @@ module DeliveryServices
 
     STATUS_LIST = {
       CREATED:
-       ['Shipment information sent to FedEx',
-        'At Pickup',
-        'Tendered'],
+       ['Shipment information sent to FedEx'
+      ],
       ON_TRANSIT: [
         'Departed FedEx location',
         'On FedEx vehicle for delivery',
@@ -16,7 +15,12 @@ module DeliveryServices
         'Arrived at FedEx location',
         'Picked up',
         'International shipment release',
-        'Hold at location'
+        'Hold at location',
+        'Ready for pickup',
+        'Out for delivery',
+        'Weather delay',
+        'Tendered',
+        'At Pickup'
       ],
       DELIVERED: [
         'Delivered'
@@ -30,7 +34,8 @@ module DeliveryServices
         'Clearance delay',
         'Shipment canceled',
         'Duplicate tracking number',
-        'Delivery exception'
+        'Delivery exception',
+        'Shipment exception'
       ]
     }
 
