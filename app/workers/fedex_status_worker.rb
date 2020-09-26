@@ -2,7 +2,7 @@ class FedexStatusWorker
   include Sidekiq::Worker
   include Sidekiq::Status::Worker
 
-  sidekiq_options retry: false, dead: false
+  sidekiq_options retry: 1, dead: false
 
   def perform(params)
     fedex = DeliveryServices::FedexService.new
